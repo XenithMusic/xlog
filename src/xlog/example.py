@@ -1,5 +1,5 @@
 from datetime import datetime
-import os,time
+import os,time,atexit
 
 cRed    = '\033[1;31m'
 cGreen  = '\033[1;32m'
@@ -17,10 +17,29 @@ warn = "WARN"
 error = "ERROR"
 fatal = "FATAL"
 
-now = datetime.now()
+now = datetime.utcnow()
+lnow = datetime.now()
+start = int(now.timestamp())
+directory = os.getcwd()
+print("Logger begun at " + str(int(start)) + " seconds since the epoch.")
+print("(local time)    " + str(int(lnow.timestamp())))
+logpath = os.path.join(directory,"log",str(start)+".txt")
+try:
+    os.mkdir(os.path.join(directory,"log"))
+except:
+    print("Log directory already exists.")
+file = open(logpath,"a+")
+@atexit.register
+def onClose():
+    file.close()
+    print("Successfully closed log file.")
+    print("Log file can be found at " + logpath)
+
+# Make sure the log is closed when the program exits
 
 def format(msg,t):
-    return "[" + now.strftime("%H:%M:%S") + "] [" + t + "] " + msg
+    ret = "[" + now.strftime("%H:%M:%S") + "] [" + t + "] " + msg
+    return
 
 class logger:
     def __init__(self):
