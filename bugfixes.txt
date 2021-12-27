@@ -1,0 +1,9 @@
+Version 0.0.4+patch.0001
+
+Fixes:
+
+Issue 1 - Unfinished function in __init__.py
+(confirmed, fixed)
+
+Issue 2 - example.py is named incorrectly
+(confirmed, fixed)
