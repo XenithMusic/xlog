@@ -17,6 +17,11 @@ This is a logging package, made for my own convenience.
 * `logger.fatal(self,msg)` Send a (uncaught) error message.
   * Example: `logger.fatal("Fatal error message")` -> `[12:34:56] [FATAL] Fatal error message`
 
+### Everything outside of a class
+
+* `format(msg,t)` - Internal function, formats msg and type into logger message.
+  * Example: `print(format("This is essentially a log.","LMAO"))` -> `[12:34:56] [LMAO] This is essentially a log.`
+
 ## Changelog
 
 ```
@@ -26,3 +31,9 @@ This is a logging package, made for my own convenience.
   - Fixed a syntax error.
 - 0.0.3
   - Might have fixed the error where you cannot create a logger.
+- 0.0.4
+  - Seems I messed up and should not have put the code in the init file.
+  - Moved code from init file to example file
+  - Fixed formatting in README.md
+  - Log file is produced.
+```
