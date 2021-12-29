@@ -1,5 +1,5 @@
 from datetime import datetime
-import os,time,atexit
+import os,atexit
 
 cRed    = '\033[1;31m'
 cGreen  = '\033[1;32m'
